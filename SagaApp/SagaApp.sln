@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaApp", "SagaApp\SagaApp.csproj", "{8BD92EC2-0838-4930-90F0-BF1A6738FE8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaApp.Test", "SagaApp.Test\SagaApp.Test.csproj", "{13F6714C-4715-45D6-B14C-155A473B8F24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BD92EC2-0838-4930-90F0-BF1A6738FE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BD92EC2-0838-4930-90F0-BF1A6738FE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BD92EC2-0838-4930-90F0-BF1A6738FE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BD92EC2-0838-4930-90F0-BF1A6738FE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13F6714C-4715-45D6-B14C-155A473B8F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13F6714C-4715-45D6-B14C-155A473B8F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13F6714C-4715-45D6-B14C-155A473B8F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13F6714C-4715-45D6-B14C-155A473B8F24}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9A03D503-64BB-482A-BD6A-1A0C25E36E99}
+	EndGlobalSection
+EndGlobal

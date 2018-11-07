@@ -1,0 +1,13 @@
+.vs/
+[Bb]in
+[Dd]ebug*/
+obj/
+.idea/
+
+# NCrunch
+_NCrunch_*
+*.ncrunch*.user
+.*crunch*.local.xml
+*.ncrunch*
+_NCrunch_*/
+
