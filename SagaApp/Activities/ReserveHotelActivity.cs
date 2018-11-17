@@ -10,13 +10,14 @@ namespace SagaApp.Activities
         private const string hotelNameKey = "hotelName";
 
 
-        public object Do(WorkItem workItem)
+        public WorkResult Do(WorkItem workItem)
         {
             Console.WriteLine("-- Reserving hotel --");
             var hotelName = workItem.Arguments[hotelNameKey];
             var reservationId = GetReservationId();
             Console.WriteLine("Reserved hotel {0}, reservation id {1}", hotelName, reservationId);
-            return new { reservationId };
+
+            return new WorkResult { { reservationIdKey, reservationId } };
         }
 
         public bool Compensate(object item)

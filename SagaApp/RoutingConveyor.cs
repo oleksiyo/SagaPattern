@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using SagaApp.Activities;
+using SagaApp.Work;
 
 namespace SagaApp
 {
     public class RoutingConveyor
     {
-        readonly Stack<IActivity> completedWorkItems = new Stack<IActivity>();
-        private readonly Queue<IActivity> queueActivities = new Queue<IActivity>();
+        readonly Stack<WorkItem> completedWorkItems = new Stack<WorkItem>();
+        private readonly Queue<WorkItem> queueActivities = new Queue<WorkItem>();
 
-        public RoutingConveyor(IEnumerable<IActivity> activities)
+        public RoutingConveyor(IEnumerable<WorkItem> activities)
         {
             foreach (var activity in activities)
             {
@@ -24,9 +25,11 @@ namespace SagaApp
             for (int i = 0; i < queueActivities.Count + 1; i++)
             {
                 var currentItem = queueActivities.Dequeue();
+                var activity = (IActivity)Activator.CreateInstance(currentItem.ActivityType);
                 try
                 {
-                    var result = currentItem.Do("some args");
+               
+                    var result = activity.Do(currentItem);
                     if (result != null)
                     {
                         this.completedWorkItems.Push(currentItem);
@@ -38,7 +41,7 @@ namespace SagaApp
                     Console.WriteLine("Exception {0}", e.Message);
                     completedWorkItems.ToList().ForEach(item =>
                     {
-                        item.Compensate("some args");
+                        activity.Compensate("some args");
                     });
                     return false;
                 }            

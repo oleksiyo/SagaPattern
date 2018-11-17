@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using SagaApp.Activities;
+using SagaApp.Work;
 
 namespace SagaApp
 {
@@ -8,9 +9,13 @@ namespace SagaApp
     {
         static void Main(string[] args)
         {
-            var activities = new List<IActivity> { new ReserveHotelActivity(), new ReserveFlightActivity() };
+            var workItems = new WorkItem[]
+            {
+                new WorkItem<ReserveHotelActivity>(new WorkItemArguments{{ "hotelName", "BNB"}}),
+                new WorkItem<ReserveFlightActivity>(new WorkItemArguments{{"fligthNumber", "DU-2355LE"}})
+            };
 
-            var routingConveyor = new RoutingConveyor(activities);
+            var routingConveyor = new RoutingConveyor(workItems);
             routingConveyor.ProcessNext();
 
             Console.ReadLine();

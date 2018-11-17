@@ -9,7 +9,7 @@ namespace SagaApp.Activities
 
         Uri CompensationQueueAddress { get; }
 
-        object Do(WorkItem workItem);
+        WorkResult Do(WorkItem workItem);
 
         bool Compensate(object item);
     }

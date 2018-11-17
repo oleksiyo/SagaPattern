@@ -9,16 +9,16 @@ namespace SagaApp.Activities
         private const string flightCancellationAction = "flightCancellations";
         private const string flightNumberKey = "flightNumber";
 
-        public object Do(WorkItem workItem)
+        public WorkResult Do(WorkItem workItem)
         {
             Console.WriteLine("-- Reserving flight --");
 
-            var flightNumber = workItem.Arguments["flightNumber"];
+            var flightNumber = workItem.Arguments[flightNumberKey];
             //throw new Exception("Some error");
             var reservationId = GetReservationId();
             Console.WriteLine("Reserved flight {0}, reservation id {1}", flightNumber, reservationId);
 
-            return new { reservationId };
+            return new  WorkResult { { reservationIdKey, reservationId } };
         }
 
         public bool Compensate(object item)
