@@ -2,7 +2,7 @@
 
 namespace SagaApp.Activities
 {
-    internal class ActivityBase
+    public class ActivityBase
     {
         private static readonly Random rnd = new Random(1);
 
