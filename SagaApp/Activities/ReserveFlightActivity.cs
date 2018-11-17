@@ -10,7 +10,7 @@ namespace SagaApp.Activities
         public object Do(string name)
         {
             Console.WriteLine("-- Reserving flight --");
-
+            throw new Exception("Some error");
             var reservationId = GetReservationId();
             Console.WriteLine("Reserved flight {0}, reservation id {1}", name, reservationId);
             return new { reservationId };

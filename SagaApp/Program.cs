@@ -9,10 +9,10 @@ namespace SagaApp
         static void Main(string[] args)
         {
             var activities = new List<IActivity> { new ReserveHotelActivity(), new ReserveFlightActivity() };
-            foreach (var activity in activities)
-            {
-                activity.Do("reserve");
-            }
+
+            var routingConveyor = new RoutingConveyor(activities);
+            routingConveyor.ProcessNext();
+
             Console.ReadLine();
         }
     }
