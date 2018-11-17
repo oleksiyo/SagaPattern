@@ -1,4 +1,5 @@
 ﻿using System;
+using SagaApp.Work;
 
 namespace SagaApp.Activities
 {
@@ -8,7 +9,7 @@ namespace SagaApp.Activities
 
         Uri CompensationQueueAddress { get; }
 
-        object Do(string name);
+        object Do(WorkItem workItem);
 
         bool Compensate(object item);
     }

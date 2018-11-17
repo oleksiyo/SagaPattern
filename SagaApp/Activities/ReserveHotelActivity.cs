@@ -1,4 +1,5 @@
 ﻿using System;
+using SagaApp.Work;
 
 namespace SagaApp.Activities
 {
@@ -6,13 +7,15 @@ namespace SagaApp.Activities
     {
         private const string hotelReservationAction = "hotelReservations";
         private const string hotelCancellationAction = "hotelCancellations";
+        private const string hotelNameKey = "hotelName";
 
-        public object Do(string name)
+
+        public object Do(WorkItem workItem)
         {
             Console.WriteLine("-- Reserving hotel --");
-
+            var hotelName = workItem.Arguments[hotelNameKey];
             var reservationId = GetReservationId();
-            Console.WriteLine("Reserved hotel {0}, reservation id {1}", name, reservationId);
+            Console.WriteLine("Reserved hotel {0}, reservation id {1}", hotelName, reservationId);
             return new { reservationId };
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using SagaApp.Work;
 
 namespace SagaApp.Activities
 {
@@ -6,13 +7,17 @@ namespace SagaApp.Activities
     {
         private const string flightReservationAction = "flightReservations";
         private const string flightCancellationAction = "flightCancellations";
+        private const string flightNumberKey = "flightNumber";
 
-        public object Do(string name)
+        public object Do(WorkItem workItem)
         {
             Console.WriteLine("-- Reserving flight --");
-            throw new Exception("Some error");
+
+            var flightNumber = workItem.Arguments["flightNumber"];
+            //throw new Exception("Some error");
             var reservationId = GetReservationId();
-            Console.WriteLine("Reserved flight {0}, reservation id {1}", name, reservationId);
+            Console.WriteLine("Reserved flight {0}, reservation id {1}", flightNumber, reservationId);
+
             return new { reservationId };
         }
 
