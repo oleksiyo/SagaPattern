@@ -28,12 +28,12 @@ namespace SagaApp
                 var activity = (IActivity)Activator.CreateInstance(currentItem.ActivityType);
                 try
                 {
-               
+
                     var result = activity.Do(currentItem);
                     if (result != null)
                     {
                         this.completedWorkItems.Push(currentItem);
-                  
+
                     }
                 }
                 catch (Exception e)
@@ -44,7 +44,7 @@ namespace SagaApp
                         activity.Compensate("some args");
                     });
                     return false;
-                }            
+                }
             }
             return true;
         }
